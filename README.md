@@ -69,9 +69,11 @@ _Note: If you do not include `--csv` or `--json` then no output will be producte
 ```shell
 ❯ docker run --rm -it -e SNYK_TOKEN -v "${PWD}"/file_output:/runtime snyk-audit-to-csv:latest org cse-ownership --json
 Total events found: 1188
-CSV saved to /runtime/cse-ownership_2021-10-11_to_2021-10-18.csv
+JSON saved to /runtime/cse-ownership_2021-10-11_to_2021-10-18.json
 ```
+---
 
+### Example CSV output
 
 |FIELD1                                                          |groupId|orgId                               |userId                              |event     |content                                                                                                             |created                 |
 |----------------------------------------------------------------|-------|------------------------------------|------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------|------------------------|
