@@ -1,3 +1,10 @@
+## NOTE (API ENDPOINT END OF LIFE):
+
+This script is currently not functional, as the v1 endpoint for retrieving Audit Logs from Snyk is now deprecated.
+At some point in the future this script may be updated to support the new REST API endpoint.
+
+---
+
 ## Snyk audit to csv
 
 This is a simple CLI app that uses the [pysnyk](https://github.com/snyk-labs/pysnyk) module to load issues from Snyk's audit API, it supports pulling issues down for group and org, along with adding selective filters.
@@ -16,15 +23,12 @@ docker build --force-rm -f Dockerfile -t snyk-audit-to-csv:latest .
 
 ### Running
 
-To run this script, you need to have a SNYK_TOKEN set if your environment, if you have jq and the snyk cli already installed on your workstation, that can be done quickly with the following commands.
+To run this script, you need to have a SNYK_TOKEN set if your environment.
 If you are using the docker image, with the token set, ensure it is passed to the local container. If you are running from inside this directory, use the file_output directory as a place to deposit the json or csv data.
 
 ```shell
-# first authenticate and make sure you have a .config directory
-snyk auth
-
-# export your api token from the .config/configstore/snyk.json file
-export SNYK_TOKEN=$(jq -r '.api' ~/.config/configstore/snyk.json)
+# Export your Snyk API token
+export SNYK_TOKEN=<API Token>
 ```
 
 - For **Snyk Groups** we need the full, quoted name of the group, such as `"Customer Success Engineer"`.
